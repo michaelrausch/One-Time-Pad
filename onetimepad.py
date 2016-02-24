@@ -26,21 +26,18 @@ class OneTimePadTest(unittest.TestCase):
         num_as_letter = a.get_number_as_letter(letter_as_num)
         self.assertEqual(num_as_letter, letter)
         
-        
     def test_get_modulus(self):
         """
         Tests the get_modulus method, returns 26 for the default alphabet
         """
         a = Alphabet()
         self.assertEqual(a.get_modulus(), 26)
-        
-        
+             
     def test_new_alphabet(self):
         a = Alphabet()
         a.set_new(['a','b'])
         modulus = a.get_modulus()
-        self.assertEqual(modulus, 2)
-        
+        self.assertEqual(modulus, 2)      
         
     def test_data_obj(self):
         """
@@ -50,22 +47,19 @@ class OneTimePadTest(unittest.TestCase):
         self.assertEqual(do.get(), "Test")
         do.set("t1")
         self.assertEqual(do.get(), "t1")
-        
-    
+         
     def test_add_letters(self):
         """
         Test addition of letters
         """
         self.assertEqual(add_letters("b", "c"), 'D')
-        
-        
+              
     def test_subtract_letters(self):
         """
         Tests subtraction of letters
         """
         self.assertEqual(subtract_letters("d", "c"), 'B')
-        
-        
+               
     def test_encrypt(self):
         """
         Test Encryption
@@ -74,8 +68,7 @@ class OneTimePadTest(unittest.TestCase):
         send_msg = Message("testmsg")
         enc_m = encrypt(key, send_msg)
         self.assertEqual(enc_m.get(), "CHXDESJ")
-        
-        
+               
     def test_decrypt(self):
         """
         Test Decryption
@@ -92,15 +85,12 @@ class DataObject:
     """
     def __init__(self, data):
         self.data = data
-    
-    
+       
     def set(self, data):
         self.data = data
-        
-        
+               
     def get(self):
-        return self.data
-    
+        return self.data   
     
     def __str__(self):
         return self.data
@@ -135,8 +125,7 @@ class Alphabet:
     Holds an alphabet of supported characters
     """
     def __init__(self):
-        self.alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-        
+        self.alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']        
         
     def get_letter_as_number(self, letter):
         """
@@ -145,8 +134,7 @@ class Alphabet:
         for i in range(0, len(self.alphabet)):
             if self.alphabet[i] == letter.upper():
                 return i
-            
-            
+                  
     def get_number_as_letter(self, number):
         """
         Returns the letter from the index in the alphabet
@@ -155,16 +143,14 @@ class Alphabet:
             return self.alphabet[number]
         
         except IndexError:
-            print("Number is not a valid index")
-            
+            print("Number is not a valid index")            
             
     def get_modulus(self):
         """
         Returns the modulus used when adding/subtracting letters
         """
         return len(self.alphabet)
-    
-    
+        
     def set_new(self, new):
         """
         Sets a new alphabet,
