@@ -26,6 +26,7 @@ class OneTimePadTest(unittest.TestCase):
         num_as_letter = a.get_number_as_letter(letter_as_num)
         self.assertEqual(num_as_letter, letter)
         
+        
     def test_get_modulus(self):
         """
         Tests the get_modulus method, returns 26 for the default alphabet
@@ -33,11 +34,13 @@ class OneTimePadTest(unittest.TestCase):
         a = Alphabet()
         self.assertEqual(a.get_modulus(), 26)
         
+        
     def test_new_alphabet(self):
         a = Alphabet()
         a.set_new(['a','b'])
         modulus = a.get_modulus()
         self.assertEqual(modulus, 2)
+        
         
     def test_data_obj(self):
         """
@@ -55,11 +58,13 @@ class OneTimePadTest(unittest.TestCase):
         """
         self.assertEqual(add_letters("b", "c"), 'D')
         
+        
     def test_subtract_letters(self):
         """
         Tests subtraction of letters
         """
         self.assertEqual(subtract_letters("d", "c"), 'B')
+        
         
     def test_encrypt(self):
         """
@@ -69,6 +74,7 @@ class OneTimePadTest(unittest.TestCase):
         send_msg = Message("testmsg")
         enc_m = encrypt(key, send_msg)
         self.assertEqual(enc_m.get(), "CHXDESJ")
+        
         
     def test_decrypt(self):
         """
